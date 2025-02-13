@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Animation Example</title>
+<style>
+  #myElement {
+    position: absolute; /* Important for positioning */
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    background-color: red; /* Or any other styling you want */
+  }
+</style>
+</head>
+<body>
+
+<div id="myElement"></div>
+
+<script>
+  const element = document.getElementById('myElement');
+  let position = 0;
+  const speed = 2;
+
+  function animate() {
+    position += speed;
+    element.style.left = position + 'px';
+
+    if (position > window.innerWidth) {
+      position = -100; // Reset position to start again
+    }
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+</body>
+</html>
